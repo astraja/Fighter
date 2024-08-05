@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Player player;
+    //public Player player;
 
-    void Start()
-    {
-        player.GetComponent<SpriteRenderer>().color = player.PlayerColor;
-    }
+    //void Start()
+    //{
+    //    player.GetComponent<SpriteRenderer>().color = player.PlayerColor;
+    //}
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) 
-        { 
-            player.Attack();
-        }
+    //void Update()
+    //{
+    //    //if (Input.GetMouseButtonDown(0)) 
+    //    //{ 
+    //    //    player.Attack();
+    //    //}
 
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            Vector3 xy = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-            player.Move(Time.deltaTime*player.MaxSpeed*xy);
-        }
-    }
+    //    if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+    //    {
+    //        Vector3 xy = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")*0.8f, 0);
+    //        player.Move(Time.deltaTime*player.Speed*xy);
+    //    }
+    //}
 }

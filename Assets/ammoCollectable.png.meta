@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: fd0e8eff5d4d30243a8c99adb7b70255
+guid: 32cdb5f2566a7ff4cb4555f67d4bc9ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7501004639286611643
-    second: kamikaze_0
+      213: 8383088168360028017
+    second: ammoCollectable_0
+  - first:
+      213: -5229895576807937116
+    second: ammoCollectable_1
+  - first:
+      213: -2688062632691668027
+    second: ammoCollectable_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kamikaze_0
+      name: ammoCollectable_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 573
-        height: 507
+        width: 68
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 541b3c8c50417e790800000000000000
-      internalID: -7501004639286611643
+      spriteID: 17721eb0646b65470800000000000000
+      internalID: 8383088168360028017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammoCollectable_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 24
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abe9fb9eadab67b0800000000000000
+      internalID: -5229895576807937116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammoCollectable_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb696c074512bad0800000000000000
+      internalID: -2688062632691668027
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c5e3d54cc25a32343bab2d811a80bfba
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ammoCollectable_0: 8383088168360028017
+      ammoCollectable_1: -5229895576807937116
+      ammoCollectable_2: -2688062632691668027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

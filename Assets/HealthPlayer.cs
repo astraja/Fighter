@@ -1,22 +1,21 @@
 using System;
 using UnityEngine;
 
-public class HealthPlayer : MonoBehaviour, IDamagable
+public class HealthPlayer : Hp, IDamagable
 {
     public static event Action<int> HealthChange;
-    [SerializeField] int _maxHealth;
-    int _health;
+
     void Start()
     {
-        _health = _maxHealth;
-        HealthChange?.Invoke(_health);
+        _hp = _maxHp;
+        HealthChange?.Invoke(_hp);
     }
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
-        HealthChange?.Invoke(_health);
-        if (_health <= 0)
+        _hp -= damage;
+        HealthChange?.Invoke(_hp);
+        if (_hp <= 0)
         {
             Destroy(gameObject);
         }
@@ -24,7 +23,7 @@ public class HealthPlayer : MonoBehaviour, IDamagable
 
     public void AddHealth(int health)
     {
-        _health = Math.Clamp(_health + health, _health, _maxHealth);
-        HealthChange?.Invoke(_health);
+        _hp = Math.Clamp(_hp + health, _hp, _maxHp);
+        HealthChange?.Invoke(_hp);
     }
 }

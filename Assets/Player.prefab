@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1419319643539540840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7436578280582573706}
+  m_Layer: 0
+  m_Name: aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7436578280582573706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419319643539540840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.89, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5587481250863370841}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5930098510063966996
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,11 +41,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5587481250863370841}
   - component: {fileID: 509620025206637691}
-  - component: {fileID: 7244107072984540370}
-  - component: {fileID: 1434145073789286531}
+  - component: {fileID: 6149641105920408377}
   - component: {fileID: 4238861743634092080}
   - component: {fileID: 746316169617015154}
   - component: {fileID: 389405977073856032}
+  - component: {fileID: 2312558385568472746}
+  - component: {fileID: 3876108481614797833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -34,7 +66,8 @@ Transform:
   m_LocalPosition: {x: -5.46, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7436578280582573706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &509620025206637691
@@ -92,7 +125,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7244107072984540370
+--- !u!114 &6149641105920408377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,22 +134,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5930098510063966996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8a7b1b53f60cf46834e24dba9219f2, type: 3}
+  m_Script: {fileID: 11500000, guid: d158ae3c64b1f3b458a8b4da48476dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1434145073789286531}
---- !u!114 &1434145073789286531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930098510063966996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9cfc6fedecfc164c926741a28bfb666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
+  _aim: {fileID: 7436578280582573706}
+  _power: 3
+  _ammo: 40
+  _bulletSpeed: 14
 --- !u!61 &4238861743634092080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,4 +227,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa562052ef6d264da17ef735ac0e6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHp: 10
+--- !u!114 &2312558385568472746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930098510063966996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abf3739c9037194b89bfae612f0a115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 12
+--- !u!114 &3876108481614797833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930098510063966996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7007ba51ac08144f8f0e58d19de4861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Thunder
+  _color: {r: 0.023584902, g: 0.76033145, b: 1, a: 1}

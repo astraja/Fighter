@@ -3,29 +3,21 @@ using UnityEngine;
 public  class Player : MonoBehaviour
 {
    
-    public int MaxPower {  get; protected set; }
-    public int MaxSpeed { get; protected set; }
-    // int MaxAmmo { get; private set; }
-    
+    public string Name {  get; protected set; }
     public Color PlayerColor { get; protected set; }
-    public int Ammo {  get; protected set; }
 
-    public void Attack()
+
+    [SerializeField] string _name;
+    [SerializeField] Color _color;
+
+
+    public void Start()
     {
-        if (Ammo > 0)
-        {
-            Ammo--;
-            Debug.Log($"Shoot! {Ammo} ammo left");
-        }
-        else
-        {
-            Debug.Log("No ammo");
-        }
+        Name = _name;
+        PlayerColor = _color;
+
+        gameObject.GetComponent<SpriteRenderer>().color = _color;
     }
 
-    public void Move(Vector3 dis)
-    {
-        transform.position += dis;
-    }
 
 }

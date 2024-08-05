@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
+public class HpPickUp : MonoBehaviour
 {
     [SerializeField] int _powerUp;
     private void OnTriggerEnter2D(Collider2D collision)

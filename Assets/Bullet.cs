@@ -2,26 +2,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    int _power;
+    int _speed;
+    public void SetBullet(int power, int speed)
     {
-        
+        _power = power; 
+        _speed = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += (Vector3.left * Time.deltaTime * 3);
+        //transform.position += (Vector3.left * Time.deltaTime * 3);
+        //transform.position += (-transform.right * Time.deltaTime * 3);
+        transform.Translate(Time.deltaTime * _speed * Vector3.left);
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamagable target = collision.gameObject.GetComponent<IDamagable>();
-        //Hp hp = collision.gameObject.GetComponent<Hp>();
+        //Hp target = collision.gameObject.GetComponent<Hp>();
         if(target != null)
         {
-            target.TakeDamage(2);
+            target.TakeDamage(_power);
         }
         Destroy(gameObject);
     }

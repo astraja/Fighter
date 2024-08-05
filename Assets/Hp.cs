@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class Hp : MonoBehaviour, IDamagable
 {
+    [SerializeField] protected int _maxHp;
+    protected int _hp;
 
-    [SerializeField] int _health;
-    public void TakeDamage(int damage)
+    void Start()
     {
-        _health -= damage;
-        Debug.Log($"Health: {_health}");
-        if (_health <= 0)
+        _hp = _maxHp;
+    }
+
+    public virtual void TakeDamage(int damage)
+    {
+        _hp -= damage;
+        if (_hp <= 0)
         {
             Destroy(gameObject);
         }
