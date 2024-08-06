@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hp : MonoBehaviour, IDamagable
+public class Hp : MonoBehaviour
 {
     [SerializeField] protected int _maxHp;
     protected int _hp;
@@ -8,6 +8,7 @@ public class Hp : MonoBehaviour, IDamagable
     void Start()
     {
         _hp = _maxHp;
+        Debug.Log("HP");
     }
 
     public virtual void TakeDamage(int damage)

@@ -4,24 +4,35 @@ public class Bullet : MonoBehaviour
 {
     int _power;
     int _speed;
+    Vector3 _dir;
+
     public void SetBullet(int power, int speed)
     {
         _power = power; 
         _speed = speed;
+        _dir = Vector3.left;
+    }
+
+    public void SetBullet(int power, int speed, Color color)
+    {
+        _power = power;
+        _speed = speed;
+        _dir = Vector3.right;
+        gameObject.GetComponent<SpriteRenderer>().color = color;
     }
 
     void Update()
     {
         //transform.position += (Vector3.left * Time.deltaTime * 3);
         //transform.position += (-transform.right * Time.deltaTime * 3);
-        transform.Translate(Time.deltaTime * _speed * Vector3.left);
+        transform.Translate(Time.deltaTime * _speed * _dir);
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IDamagable target = collision.gameObject.GetComponent<IDamagable>();
-        //Hp target = collision.gameObject.GetComponent<Hp>();
+        //IDamagable target = collision.gameObject.GetComponent<IDamagable>();
+        Hp target = collision.gameObject.GetComponent<Hp>();
         if(target != null)
         {
             target.TakeDamage(_power);

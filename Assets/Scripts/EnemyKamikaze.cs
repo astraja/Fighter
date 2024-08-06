@@ -7,7 +7,7 @@ public class EnemyKamikaze : Enemy
     [SerializeField] Transform _aim;
     public EnemyKamikaze()
     {
-        Power = 1;
+        Power = 5;
         AttackDelay = 1f;
         BulletSpeed = 10;
     }

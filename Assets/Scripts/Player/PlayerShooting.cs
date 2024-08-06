@@ -24,7 +24,7 @@ public class PlayerShooting : MonoBehaviour
         {
             _ammo--;
             AmmoChange?.Invoke(_ammo);
-            PlayerBullet bullet = Instantiate(_bullet, _aim.position, gameObject.transform.rotation).GetComponent<PlayerBullet>();
+            Bullet bullet = Instantiate(_bullet, _aim.position, gameObject.transform.rotation).GetComponent<Bullet>();
             bullet.SetBullet(_power, _bulletSpeed, player.PlayerColor);
         }
 

@@ -1,17 +1,18 @@
 using System;
 using UnityEngine;
 
-public class HealthPlayer : Hp, IDamagable
+public class HealthPlayer : Hp
 {
     public static event Action<int> HealthChange;
 
     void Start()
     {
         _hp = _maxHp;
+        Debug.Log("HP Player");
         HealthChange?.Invoke(_hp);
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         _hp -= damage;
         HealthChange?.Invoke(_hp);
