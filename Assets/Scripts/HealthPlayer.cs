@@ -5,26 +5,28 @@ public class HealthPlayer : Hp
 {
     public static event Action<int> HealthChange;
 
-    void Start()
+    new void Start()
     {
-        _hp = _maxHp;
-        Debug.Log("HP Player");
-        HealthChange?.Invoke(_hp);
+        base.Start();
+        UpdateHpUI();
     }
+
 
     public override void TakeDamage(int damage)
     {
-        _hp -= damage;
-        HealthChange?.Invoke(_hp);
-        if (_hp <= 0)
-        {
-            Destroy(gameObject);
-        }
+        _hp = UpdateHp(damage);
+        UpdateHpUI();
+        Die();
     }
 
     public void AddHealth(int health)
     {
         _hp = Math.Clamp(_hp + health, _hp, _maxHp);
+        UpdateHpUI();
+    }
+
+    void UpdateHpUI()
+    {
         HealthChange?.Invoke(_hp);
     }
 }

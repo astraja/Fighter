@@ -6,6 +6,11 @@ public class Bullet : MonoBehaviour
     int _speed;
     Vector3 _dir;
 
+    private void Start()
+    {
+        Destroy(gameObject, 2);
+    }
+
     public void SetBullet(int power, int speed)
     {
         _power = power; 
@@ -23,7 +28,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        //transform.position += (Vector3.left * Time.deltaTime * 3);
         //transform.position += (-transform.right * Time.deltaTime * 3);
         transform.Translate(Time.deltaTime * _speed * _dir);
     }

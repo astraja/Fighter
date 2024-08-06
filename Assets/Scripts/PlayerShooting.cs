@@ -17,24 +17,26 @@ public class PlayerShooting : MonoBehaviour
         player = GetComponent<Player>();
     }
 
+    void Start()
+    {
+        UpdateAmmoUI();
+    }
 
     public void Attack()
     {
         if (_ammo > 0)
         {
             _ammo--;
-            AmmoChange?.Invoke(_ammo);
+            UpdateAmmoUI();
             Bullet bullet = Instantiate(_bullet, _aim.position, gameObject.transform.rotation).GetComponent<Bullet>();
             bullet.SetBullet(_power, _bulletSpeed, player.PlayerColor);
         }
-
     }
-
 
     public void AddAmmo(int ammo)
     {
         _ammo += ammo;
-        AmmoChange?.Invoke(_ammo);
+        UpdateAmmoUI();
     }
 
     void Update()
@@ -43,6 +45,10 @@ public class PlayerShooting : MonoBehaviour
         {
             Attack();
         }
+    }
 
+    void UpdateAmmoUI()
+    {
+        AmmoChange?.Invoke(_ammo);
     }
 }
