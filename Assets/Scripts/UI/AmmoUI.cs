@@ -9,12 +9,12 @@ public class AmmoUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerShooting.AmmoChange += OnAmmoChange;
+        Weapon.AmmoChange += OnAmmoChange;
     }
 
     private void OnDisable()
     {
-        PlayerShooting.AmmoChange -= OnAmmoChange;
+        Weapon.AmmoChange -= OnAmmoChange;
     }
 
     void OnAmmoChange(int ammo)
