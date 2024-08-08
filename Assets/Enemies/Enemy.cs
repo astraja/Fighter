@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int Power { get; protected set; }
-    public float AttackDelay { get; protected set; }
-    public int BulletSpeed { get; protected set; }
+    [SerializeField] protected int _power;
+    [SerializeField] protected float _attackDelay;
+    [SerializeField] protected int _bulletSpeed;
 
     public virtual void Attack()
     {

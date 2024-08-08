@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected GameObject _bullet;
-    [SerializeField] Transform _aim;
+    [SerializeField] protected Transform _aim;
     [SerializeField] protected int _power;
     [SerializeField] protected int _ammoQuantity;
     [SerializeField] protected int _bulletSpeed;
@@ -22,6 +22,12 @@ public class Weapon : MonoBehaviour
         UpdateAmmoUI();
         _audios = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
     }
+
+    private void OnEnable()
+    {
+        UpdateAmmoUI();
+    }
+
     void Update()
     {
         _lastShot += Time.deltaTime;
@@ -58,23 +64,22 @@ public class Weapon : MonoBehaviour
 
     void SwitchWeapon()
     {
+        
         Transform p = transform.parent.transform;
         int weaponsCount = p.childCount;
+        if (weaponsCount == 1) return;
         int index = gameObject.transform.GetSiblingIndex();
 
         if (index < weaponsCount - 1)
         {
             p.GetChild(index+1).gameObject.SetActive(true);    
             gameObject.SetActive(false);
-
         }
         else
         {
             p.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
-
+        
     }
-
-    
 }
