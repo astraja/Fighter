@@ -4,24 +4,25 @@ using UnityEngine;
 public class Energy : MonoBehaviour
 {
     public static event Action<int,int> EnergyChange;
-
+    [SerializeField] protected GameObject _energyUIPrefab;
     [SerializeField] protected GameObject _energyPrefab;
     [SerializeField] protected Transform _energyAim;
     [SerializeField] protected int _maxEnergy;
-    [SerializeField] protected int _energyCost;
+    [SerializeField] public int _energyCost;
     [SerializeField] protected int _restoringPoints;
-    protected int _energy;
+    public int _energy;
     float _timer = 0f;
 
     void Start()
     {
         _energy = _maxEnergy;
+        Instantiate(_energyUIPrefab);
         UpdateEnergyUI();
     }
 
     public virtual void Use()
     {
-        
+        //Create energy object (shield, attack, etc.)
     }
 
     public void Add(int unit)
@@ -29,24 +30,23 @@ public class Energy : MonoBehaviour
         _energy = Math.Clamp(_energy + unit, _energy, _maxEnergy);
         UpdateEnergyUI();
     }
-
-
+    public void Take(int unit)
+    {
+        if (_energy > 0)
+        {
+            _energy -= unit;
+            UpdateEnergyUI();
+        }
+    }
 
     protected void UpdateEnergyUI()
     {
         EnergyChange?.Invoke(_energy, _maxEnergy);
     }
 
-    private void Update()
+    void RestoreEnergy()
     {
-        if (Input.GetMouseButtonDown(1) && _energy > _energyCost)
-        {
-            _energy -= _energyCost;
-            UpdateEnergyUI();
-            Use();
-        }
-
-        if(_energy < _maxEnergy)
+        if (_energy < _maxEnergy)
         {
             _timer += Time.deltaTime;
             if (_timer > 1)
@@ -54,6 +54,16 @@ public class Energy : MonoBehaviour
                 Add(_restoringPoints);
                 _timer = 0f;
             }
+        }
+    }
+
+    private void Update()
+    {
+        RestoreEnergy();
+        if (_energy > _energyCost && Input.GetButtonDown("Fire2"))
+        {
+
+            Use();
         }
     }
 }

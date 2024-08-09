@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4692828388381392240}
   - component: {fileID: 8327825777389998024}
   - component: {fileID: 4610334603709080727}
+  - component: {fileID: 4472740434554482719}
   m_Layer: 5
-  m_Name: HpCanvas
+  m_Name: UI Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4472740434554482719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181670850053016806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae33e5d5d748bb45910d466db2d8a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthImg: {fileID: 4564988219683095432}
 --- !u!1 &6754488483893626189
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +127,6 @@ GameObject:
   - component: {fileID: 2880117435007959608}
   - component: {fileID: 762102638490188925}
   - component: {fileID: 4564988219683095432}
-  - component: {fileID: 6938618721420910358}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -173,21 +186,8 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.6
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6938618721420910358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6754488483893626189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae33e5d5d748bb45910d466db2d8a33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthImg: {fileID: 4564988219683095432}

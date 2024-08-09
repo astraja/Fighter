@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2955ac32a83c71e4ca8fe3f7042e3d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponUIPrefab: {fileID: 0}
   _bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
   _aim: {fileID: 0}
   _power: 2

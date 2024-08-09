@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98c46bb68d17c64393ba8542c3d1f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponUIPrefab: {fileID: 0}
   _bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
   _aim: {fileID: 2201454447107404695}
   _power: 1

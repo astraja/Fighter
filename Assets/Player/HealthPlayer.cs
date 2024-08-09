@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
 
-public class HealthPlayer : Hp
+public class HealthPlayer : Hp, IDamagable
 {
     public static event Action<int> HealthChange;
-
+    [SerializeField] protected GameObject _HpUIPrefab;
     new void Start()
     {
         base.Start();
+        Instantiate(_HpUIPrefab);
         UpdateHpUI();
     }
 

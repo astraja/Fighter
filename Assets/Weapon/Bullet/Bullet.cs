@@ -35,8 +35,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //IDamagable target = collision.gameObject.GetComponent<IDamagable>();
-        Hp target = collision.gameObject.GetComponent<Hp>();
+        IDamagable target = collision.gameObject.GetComponent<IDamagable>();
+        //Hp target = collision.gameObject.GetComponent<Hp>();
         if(target != null)
         {
             target.TakeDamage(_power);

@@ -5,6 +5,11 @@ public class EnergyUI : MonoBehaviour
 {
     [SerializeField] Slider _bar;
 
+    private void Start()
+    {
+
+    }
+
     private void OnEnable()
     {
         Energy.EnergyChange += OnChange;
@@ -17,6 +22,7 @@ public class EnergyUI : MonoBehaviour
 
     void OnChange(int energy, int maxVal)
     {
-        _bar.value = (float)energy / maxVal;
+           _bar.value = (float)energy / maxVal;
     }
+
 }

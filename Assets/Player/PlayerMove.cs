@@ -3,18 +3,12 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] int _speed;
-
-    void Start()
-    {
-    }
-
+    Vector3 _dir;
 
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            Vector3 xy = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") * 0.8f, 0);
-            transform.position += Time.deltaTime * _speed * xy;
-           }
+        _dir = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+        _dir.y *= 0.8f;
+        transform.Translate(Time.deltaTime * _speed * _dir);
     }
 }

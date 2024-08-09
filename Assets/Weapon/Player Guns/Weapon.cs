@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
             if (_audios != null) _audios.PlayOneShot(_attackSound, 0.3F);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButtonDown("Jump"))
         {
             SwitchWeapon();
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hp : MonoBehaviour
+public class Hp : MonoBehaviour, IDamagable
 {
     [SerializeField] protected GameObject _deathEffect;
     [SerializeField] protected int _maxHp;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3463607630503324759}
   - component: {fileID: 7904070021940220965}
   - component: {fileID: 576823186008331746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ammo Pick Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}

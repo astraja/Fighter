@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 952017348630431606}
   - component: {fileID: 4737076592409887058}
   - component: {fileID: 3465482245308098366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon Picker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
