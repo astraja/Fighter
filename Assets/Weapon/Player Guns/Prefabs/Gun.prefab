@@ -164,12 +164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10e59495457d784ca07eb4f4ba922e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponUIPrefab: {fileID: 0}
-  _bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
-  _aim: {fileID: 6018377723241031699}
-  _power: 4
-  _ammoQuantity: 120
-  _bulletSpeed: 20
-  _bulletColor: {r: 0.084549636, g: 0.4967403, b: 0.9433962, a: 1}
+  ammoUIPrefab: {fileID: 4284371115669120802, guid: 5d642e57511a2ff4a8886cadf231d721, type: 3}
+  bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
+  aims:
+  - {fileID: 6018377723241031699}
+  power: 4
+  ammoQuantity: 100
+  bulletSpeed: 22
+  bulletSize: {x: 7, y: 3, z: 3}
+  bulletColor: {r: 0.22241013, g: 0.38049528, b: 0.9622642, a: 1}
   _shootDelay: 0.1
-  _attackSound: {fileID: 8300000, guid: cc9268b646b18f84b8de96ecbba2f886, type: 3}
+  _attackSound: {fileID: 8300000, guid: db2b639c42f22e5499cd27aa501e9b1e, type: 3}

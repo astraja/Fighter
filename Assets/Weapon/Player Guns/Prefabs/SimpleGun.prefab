@@ -45,15 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98c46bb68d17c64393ba8542c3d1f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponUIPrefab: {fileID: 0}
-  _bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
-  _aim: {fileID: 2201454447107404695}
-  _power: 1
-  _ammoQuantity: 300
-  _bulletSpeed: 12
-  _bulletColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  ammoUIPrefab: {fileID: 4284371115669120802, guid: 5d642e57511a2ff4a8886cadf231d721, type: 3}
+  bullet: {fileID: 1808723026157615453, guid: bbe42375412bddc45b3ae79e74be98d9, type: 3}
+  aims:
+  - {fileID: 2201454447107404695}
+  power: 1
+  ammoQuantity: 300
+  bulletSpeed: 14
+  bulletSize: {x: 1.5, y: 3, z: 3}
+  bulletColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   _shootDelay: 0.2
-  _attackSound: {fileID: 8300000, guid: cc9268b646b18f84b8de96ecbba2f886, type: 3}
+  _attackSound: {fileID: 8300000, guid: 2f4a1f054848bb74585e29dc89d312a8, type: 3}
 --- !u!1 &8015299669676753840
 GameObject:
   m_ObjectHideFlags: 0

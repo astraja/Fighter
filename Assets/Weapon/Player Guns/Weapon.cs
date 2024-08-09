@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected GameObject _bullet;
-    [SerializeField] protected Transform _aim;
-    [SerializeField] protected int _power;
-    [SerializeField] protected int _ammoQuantity;
-    [SerializeField] protected int _bulletSpeed;
-    [SerializeField] protected Color _bulletColor;
+    public static event Action<int> AmmoChange;
+    [SerializeField] protected GameObject ammoUIPrefab;
+    [SerializeField] protected GameObject bullet;
+    [SerializeField] protected Transform[] aims;
+    [SerializeField] protected int power;
+    [SerializeField] protected int ammoQuantity;
+    [SerializeField] protected int bulletSpeed;
+    [SerializeField] protected Vector3 bulletSize;
+    [SerializeField] protected Color bulletColor;
     [SerializeField] float _shootDelay;
     [SerializeField] AudioClip _attackSound;
     AudioSource _audios;
     float _lastShot = 0;
 
-    public static event Action<int> AmmoChange;
-
     void Start()
     {
-        UpdateAmmoUI();
+        Instantiate(ammoUIPrefab);
         _audios = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
     }
 
@@ -31,9 +32,9 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         _lastShot += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && _lastShot >= _shootDelay && _ammoQuantity > 0)
+        if (Input.GetButtonDown("Fire1") && _lastShot >= _shootDelay && ammoQuantity > 0)
         {
-            Attack();
+            Attack(Vector3.one, 1);
             _lastShot = 0;
             if (_audios != null) _audios.PlayOneShot(_attackSound, 0.3F);
         }
@@ -44,27 +45,24 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public virtual void Attack()
+    public virtual void Attack(Vector3 size, int ammo)
     {
-        _ammoQuantity--;
-        UpdateAmmoUI();
-        Bullet bullet = Instantiate(_bullet, _aim.position, gameObject.transform.rotation).GetComponent<Bullet>();
-        bullet.SetBullet(_power, _bulletSpeed, _bulletColor);
+        TakeAmmo(ammo);
+        InstantiateBullet();
     }
 
-    protected void UpdateAmmoUI()
+    protected void InstantiateBullet()
     {
-        AmmoChange?.Invoke(_ammoQuantity);
-    }
-    public void AddAmmo(int ammo)
-    {
-        _ammoQuantity += ammo;
-        UpdateAmmoUI();
+        for (int i = 0; i < aims.Length; i++)
+        {
+            Bullet xbullet = Instantiate(bullet, aims[i].position, gameObject.transform.rotation).GetComponent<Bullet>();
+            xbullet.SetBullet(power, bulletSpeed, bulletColor);
+            xbullet.gameObject.transform.localScale = bulletSize;
+        }
     }
 
     void SwitchWeapon()
     {
-        
         Transform p = transform.parent.transform;
         int weaponsCount = p.childCount;
         if (weaponsCount == 1) return;
@@ -72,7 +70,7 @@ public class Weapon : MonoBehaviour
 
         if (index < weaponsCount - 1)
         {
-            p.GetChild(index+1).gameObject.SetActive(true);    
+            p.GetChild(index + 1).gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
         else
@@ -80,6 +78,22 @@ public class Weapon : MonoBehaviour
             p.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
-        
+    }
+
+    public void AddAmmo(int ammo)
+    {
+        ammoQuantity += ammo;
+        UpdateAmmoUI();
+    }
+
+    protected void TakeAmmo(int ammo)
+    {
+        ammoQuantity -= ammo;
+        UpdateAmmoUI();
+    }
+
+    protected void UpdateAmmoUI()
+    {
+        AmmoChange?.Invoke(ammoQuantity);
     }
 }

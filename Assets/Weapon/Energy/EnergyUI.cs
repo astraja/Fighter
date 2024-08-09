@@ -3,11 +3,19 @@ using UnityEngine.UI;
 
 public class EnergyUI : MonoBehaviour
 {
+    public static EnergyUI Instance { get; private set; }
     [SerializeField] Slider _bar;
 
-    private void Start()
+    private void Awake()
     {
-
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void OnEnable()

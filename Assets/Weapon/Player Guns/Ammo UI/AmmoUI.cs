@@ -4,8 +4,21 @@ using TMPro;
 
 public class AmmoUI : MonoBehaviour
 {
+    public static AmmoUI Instance { get; private set; }
     [SerializeField] Image _ammoImg;
     [SerializeField] TMP_Text _ammoTxt;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void OnEnable()
     {
